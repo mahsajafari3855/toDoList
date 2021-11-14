@@ -84,8 +84,23 @@ background-color: gainsboro;}
 .fa-check-square{
     color:var(--primeryColor);
 }
-.complited{
+.completed{
     text-decoration:line-through;
     opacity: 0.5;
 
+}
+select{
+    appearance: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 1rem;
+    color: var(--primeryColor);
+    font-weight: bold;
+    cursor: pointer;
+}
+select::after{
+    content: "\25BC";
+    top:0;
+    right: 0;
 }
