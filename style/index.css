@@ -36,7 +36,7 @@ header{
     display: flex;
 flex-direction: column;
 justify-content: start;
-}
+}     
 .form-container{
     display:flex;
     flex-direction: column;
@@ -83,4 +83,9 @@ background-color: gainsboro;}
 }
 .fa-check-square{
     color:var(--primeryColor);
+}
+.complited{
+    text-decoration:line-through;
+    opacity: 0.5;
+
 }
