@@ -96,11 +96,23 @@ select{
     width: 100%;
     padding: 1rem;
     color: var(--primeryColor);
-    font-weight: bold;
-    cursor: pointer;
+    
 }
-select::after{
+.select::after{
     content: "\25BC";
     top:0;
     right: 0;
+    position: absolute;
+    padding: 1rem;
+    color: var(--primeryColor);
+}
+.select{
+    cursor: pointer;
+
+    background-color: #fff;
+    width: 100%;
+    font-weight: bold;
+    position: relative;
+
+
 }

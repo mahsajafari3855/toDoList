@@ -44,25 +44,27 @@ function checkRemove(e) {
 function filterTodo(e) {
     console.log(e.target.value)
     const todos = [...todoList.childNodes];
+    console.log(todoList.childNodes);
     todos.forEach((todo) => {
-      switch (e.target.value) {
-            case ("all"):
+      switch (e.target.value) { 
+            case 'all':
                 todo.style.display = "flex";
-                break;
-            case ("completed"):
-                if (todos.classList.contains("completed")) {
+                break; 
+            case 'completed':
+                if (todo.classList.contains("completed")) {
                     todo.style.display = "flex";   
                 }
                 else todo.style.display = "none";
                 break;
-            case ("uncompleted"):
-                if (!todos.classList.contains("completed")) {
+            case 'uncompleted':
+                if (!todo.classList.contains("completed")) {
                     todo.style.display = "flex";
                 }
-                else
+                else{
                     todo.style.display = "none";
-                break;
+                
         }
+        break;}
         
         
     })
