@@ -2,6 +2,8 @@
 const inputValue = document.querySelector(".to-do-input");
 const todoButton = document.querySelector(".to-do-btn");
 const filterOption = document.querySelector(".filter-to-do");
+document.addEventListener("DOMContentLoaded",getSavetodosToDom);
+
 filterOption.addEventListener("click",filterTodo);
 todoButton.addEventListener("click", addtodo);
 const todoList = document.querySelector(".to-container")
@@ -31,6 +33,25 @@ function saveLocalStorage(todo) {
     localStorage.setItem("todos", JSON.stringify(saveTodos));
 
 
+    
+}
+function getSavetodosToDom() {
+    console.log("hi");
+    let saveTodos = localStorage.getItem("todos") ?
+        JSON.parse(localStorage.getItem("todos")) :
+        [];
+    saveTodos.forEach((todo) => {
+        const tododDiv = document.createElement("div");
+    tododDiv.classList.add("todo");
+    const newTodo=`<li>${todo}</li>
+            <span><i class="fa fa-check-square"></i></span>
+            <span><i class="fa fa-trash-alt"></i></span>`
+
+    tododDiv.innerHTML = newTodo;
+    todoList.appendChild(tododDiv);
+
+        
+    })
     
 }
 
