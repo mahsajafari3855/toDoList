@@ -36,7 +36,6 @@ function saveLocalStorage(todo) {
     
 }
 function getSavetodosToDom() {
-    console.log("hi");
     let saveTodos = localStorage.getItem("todos") ?
         JSON.parse(localStorage.getItem("todos")) :
         [];
@@ -56,14 +55,15 @@ function getSavetodosToDom() {
 }
 
 
+
+
 function checkRemove(e) {
     const classList = [...e.target.classList];
     const item = e.target;
     if (classList[1]=== "fa-trash-alt") {
         const todo = item.parentElement.parentElement;
+        removeLocalTodos(todo);  
         todo.remove();
-        
-        
     }
     else if (classList[1] === "fa-check-square") {
         const todo = item.parentElement.parentElement;
@@ -73,9 +73,19 @@ function checkRemove(e) {
         
         
         
-    }  
+    }
+    
     
 }
+function removeLocalTodos(todo) {
+    // console.log(todo.children[0].innerText);
+    let saveTodos = localStorage.getItem("todos") ?
+        JSON.parse(localStorage.getItem("todos")) :
+        [];
+    const filterTodos = saveTodos.filter((t) => t != todo.children[0].innerText)
+    localStorage.setItem("todos", JSON.stringify(filterTodos));
+
+ }
 function filterTodo(e) {
     console.log(e.target.value)
     const todos = [...todoList.childNodes];
