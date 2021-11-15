@@ -14,12 +14,27 @@ function addtodo(e) {
     const newTodo=`<li>${inputValue.value}</li>
             <span><i class="fa fa-check-square"></i></span>
             <span><i class="fa fa-trash-alt"></i></span>`
+
     tododDiv.innerHTML = newTodo;
     todoList.appendChild(tododDiv);
+    saveLocalStorage(inputValue.value);
+
     inputValue.value = " ";
     
 
 }
+function saveLocalStorage(todo) {
+    let saveTodos = localStorage.getItem("todos") ?
+        JSON.parse(localStorage.getItem("todos")) :
+        [];
+    saveTodos.push(todo);
+    localStorage.setItem("todos", JSON.stringify(saveTodos));
+
+
+    
+}
+
+
 function checkRemove(e) {
     const classList = [...e.target.classList];
     const item = e.target;
