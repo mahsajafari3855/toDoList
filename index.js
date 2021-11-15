@@ -13,8 +13,7 @@ function addtodo(e) {
     tododDiv.classList.add("todo");
     const newTodo=`<li>${inputValue.value}</li>
             <span><i class="fa fa-check-square"></i></span>
-            <span><i class="fa fa-trash-alt"></i></span>
-`
+            <span><i class="fa fa-trash-alt"></i></span>`
     tododDiv.innerHTML = newTodo;
     todoList.appendChild(tododDiv);
     inputValue.value = " ";
@@ -44,17 +43,20 @@ function checkRemove(e) {
 function filterTodo(e) {
     console.log(e.target.value)
     const todos = [...todoList.childNodes];
+    // todos.splice
     console.log(todoList.childNodes);
+
     todos.forEach((todo) => {
+        console.log("hi");
       switch (e.target.value) { 
             case 'all':
                 todo.style.display = "flex";
                 break; 
             case 'completed':
-                if (todo.classList.contains("completed")) {
-                    todo.style.display = "flex";   
-                }
-                else todo.style.display = "none";
+              if (todo.classList.contains("completed")) {
+                  todo.style.display = "flex";
+              }
+              else { todo.style.display = "none"; }
                 break;
             case 'uncompleted':
                 if (!todo.classList.contains("completed")) {
